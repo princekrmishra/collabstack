@@ -24,15 +24,18 @@ function CoverPicker({children, setNewCover}) {
     <DialogHeader>
       <DialogTitle className='font-bold'>Update Cover</DialogTitle>
       <DialogDescription>
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-3'>
+        
+      </DialogDescription>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-3'>
             {CoverOption.map((cover, index) => (
-                <div onClick={() => setSelectedCover(cover?.imageUrl)} className={`${selectedCover == cover?.imageUrl && 'border-primary border-2'} p-1 rounded-md`}>
+                <div 
+                 key={cover.imageUrl || index}
+                onClick={() => setSelectedCover(cover?.imageUrl)} className={`${selectedCover == cover?.imageUrl && 'border-primary border-2'} p-1 rounded-md`}>
                     <Image src={cover?.imageUrl} width={200} height={140}
                     className='h-[70px] w-full rounded-md object-cover' alt='coverimage options'/>
                 </div>
             ))}
         </div>
-      </DialogDescription>
     </DialogHeader>
     <DialogFooter className="">
           <DialogClose asChild>
