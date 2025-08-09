@@ -14,7 +14,7 @@ function DocumentEditorSection({params}) {
         <DocumentInfo params={params} />
 
         {/* Rich Text Editor */}
-        <RichDocumentEditor params={params}/>
+        {/* <RichDocumentEditor params={params}/> */}
     </div>
   )
 }

@@ -1,8 +1,9 @@
 "use client";
-import { doc, updateDoc } from "firebase/firestore";
+import { db } from "@/config/firebaseConfig";
+import { doc } from "firebase/firestore";
 import React, { useEffect, useRef } from "react";
 
-function RichDocumentEditor() {
+function RichDocumentEditor({params}) {
   const editorRef = useRef(null);
 
   useEffect(() => {
@@ -10,7 +11,7 @@ function RichDocumentEditor() {
 
     const saveDocument = () => {
       editorRef.current?.save().then((outputData) => {
-        
+        const docRef = doc(db, 'documentOutput', params?.documentid)
       });
     };
 
