@@ -15,7 +15,7 @@ function WorkspaceList() {
         <div className='flex justify-between'>
             <h2 className='font-bold text-2xl'>Hello, {user?.fullName}</h2>
             <Link href={'/createworkspace'}>
-            <Button>+ </Button>
+            <Button className='cursor-pointer'>+ </Button>
             </Link>
         </div>
 
@@ -33,7 +33,7 @@ function WorkspaceList() {
             <Image src={'/workspace.jpg'} width={200} height={200} alt='workspace' className='py-3'/>
             <h2 className='py-5'>Create New Workspace</h2>
             <Link href={'/createworkspace'}>
-            <Button  className='my-3'>+ New Workspace</Button>
+            <Button  className='my-3 cursor-pointer'>+ New Workspace</Button>
             </Link>
             
         </div>

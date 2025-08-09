@@ -42,6 +42,7 @@ function CreateWorkspace() {
         coverUrl: null,
         emoji: null,
         id: docId,
+        documentName: 'Untitled Document',
         documentOutput: []
     });
 
@@ -68,18 +69,18 @@ function CreateWorkspace() {
                     <h2 className='font-medium text-xl'>Create a new workspace</h2>
                     <h2 className='text-sm mt-2'>This is a shared space where you can collaborate with your team. You can always rename it later</h2>
             
-            <div className='mt-8 flex gap-2 items-center'>
+            <div className='mt-8 flex gap-2 items-center '>
                 <EmojiPickerComponent setEmojiIcon={(v) => setEmoji(v)}>
-                <Button variant='outline'>
+                <Button variant='outline'  className='cursor-pointer'>
                     {emoji ? emoji : <SmilePlus />}
                 </Button>
                 </EmojiPickerComponent>
                 <Input placeholder='workspace Name' onChange={(e) => setWorkspaceName(e.target.value)} />
             </div>
             <div className='mt-7 flex justify-end gap-6'>
-                <Button disabled={!workspaceName?.length || loading}
+                <Button disabled={!workspaceName?.length || loading} className='cursor-pointer'
                 onClick={onCreateWorkspace}>Create {loading&&<Loader2Icon className='animate-spin ml-2'/>}</Button>
-                <Button variant='outline'>Cancel</Button>
+                <Button variant='outline' className='cursor-pointer'>Cancel</Button>
             </div>
             </div>
         </div>

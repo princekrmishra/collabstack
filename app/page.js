@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Dashboard from "./(routes)/dashboard/page";
 
 export default function Home() {
   return (
     <div>
-      <h2>Prince</h2>
-      <Button variant='outline' size='lg'>Hello</Button>
+      <Dashboard />
     </div>
   );
 }

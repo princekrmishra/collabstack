@@ -26,11 +26,11 @@ function CoverPicker({children, setNewCover}) {
       <DialogDescription>
         
       </DialogDescription>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-3'>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-3 '>
             {CoverOption.map((cover, index) => (
                 <div 
                  key={cover.imageUrl || index}
-                onClick={() => setSelectedCover(cover?.imageUrl)} className={`${selectedCover == cover?.imageUrl && 'border-primary border-2'} p-1 rounded-md`}>
+                onClick={() => setSelectedCover(cover?.imageUrl)} className={`${selectedCover == cover?.imageUrl && 'border-primary border-2'} p-1 rounded-md cursor-pointer`}>
                     <Image src={cover?.imageUrl} width={200} height={140}
                     className='h-[70px] w-full rounded-md object-cover' alt='coverimage options'/>
                 </div>
@@ -39,12 +39,12 @@ function CoverPicker({children, setNewCover}) {
     </DialogHeader>
     <DialogFooter className="">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
+            <Button type="button" variant="secondary" className='cursor-pointer'>
               Close
             </Button>
            
           </DialogClose>
-           <Button type="button" onClick={() => setNewCover(selectedCover)}>
+           <Button type="button" className='cursor-pointer' onClick={() => setNewCover(selectedCover)}>
               Update
             </Button>
         </DialogFooter>
