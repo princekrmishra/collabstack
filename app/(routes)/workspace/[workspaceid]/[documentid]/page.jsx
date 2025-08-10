@@ -3,11 +3,13 @@
 import React, { useEffect } from 'react';
 import SideNav from '../../_components/SideNav';
 import DocumentEditorSection from '../../_components/DocumentEditorSection';
+import { Room } from '@/app/Room';
 
 function WorkspaceDocument({ params }) {
   // console.log(params);
   
   return (
+    <Room>
     <div>
       {/* Sidebar */}
       <div>
@@ -19,6 +21,7 @@ function WorkspaceDocument({ params }) {
        <DocumentEditorSection params={params}/>
       </div>
     </div>
+    </Room>
   );
 }
 

@@ -29,7 +29,7 @@ function CreateWorkspace() {
         const result=await setDoc(doc(db, 'Workspace', workspaceId.toString()),{
         workspaceName: workspaceName, 
         emoji:emoji,
-        coverUrl: coverImage,
+        coverImage: coverImage,
         createdBy: user?.primaryEmailAddress?.emailAddress,
         id: workspaceId,
         orgId: orgId?orgId:user?.primaryEmailAddress?.emailAddress
@@ -39,7 +39,7 @@ function CreateWorkspace() {
     await setDoc(doc(db, 'workspaceDocuments', docId.toString()), {
         workspaceId: workspaceId,
         createdBy: user?.primaryEmailAddress?.emailAddress,
-        coverUrl: null,
+        coverImage: null,
         emoji: null,
         id: docId,
         documentName: 'Untitled Document',

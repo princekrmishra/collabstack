@@ -62,7 +62,7 @@ function SideNav({ params }) {
     await setDoc(doc(db, 'workspaceDocuments', docId.toString()), {
       workspaceId: workspaceId, // use unwrapped value
       createdBy: user?.primaryEmailAddress?.emailAddress,
-      coverUrl: null,
+      coverImage: null,
       emoji: null,
       id: docId,
       documentName: 'Untitled Document',
