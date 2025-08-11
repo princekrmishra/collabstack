@@ -11,12 +11,13 @@ import { useUser } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import { Progress } from "@/components/ui/progress"
 import { toast } from "sonner"
+import NotificationBox from './NotificationBox'
 
 function SideNav({ params }) {
   // unwrap params once
   const unwrappedParams = React.use(params);
   const workspaceId = Number(unwrappedParams?.workspaceid);
-  const MAX_FILE=5;
+  const MAX_FILE=process.env.NEXT_PUBLIC_MAX_COUNT;
   const [documentList, setDocumentList] = useState([]);
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
@@ -82,7 +83,11 @@ function SideNav({ params }) {
     <div className='h-screen md:w-72 md:block fixed bg-blue-50 p-5 shadow-md'>
       <div className='flex justify-between items-center'>
         <Logo />
-        <Bell className='h-5 w-5 text-gray-500' />
+        
+        <NotificationBox>
+            <Bell className='h-5 w-5 text-gray-500' />
+        </NotificationBox>
+
       </div>
       <hr className='my-5' />
       <div>

@@ -1,20 +1,20 @@
 "use client";
-import React, { useEffect, useRef, useState, use } from "react";
+import React, { useEffect, useRef, use, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import Delimiter from "@editorjs/delimiter";
 import Alert from "editorjs-alert";
-import Table from "@editorjs/table";
 import EditorjsList from "@editorjs/list";
 import CodeTool from "@editorjs/code";
 import SimpleImage from "simple-image-editorjs";
 import { doc, onSnapshot, updateDoc } from "firebase/firestore";
 import { db } from "@/config/firebaseConfig";
 import { useUser } from "@clerk/nextjs";
+import GenerateAITemplate from "./GenerateAITemplate";
 
 function RichDocumentEditor({ params }) {
   const editorRef = useRef(null);
-  const unwrappedParams = use(params); // ✅ Correct way
+  const unwrappedParams = use(params);
   const documentId = unwrappedParams?.documentid;
   const { user } = useUser();
   const isFetched = useRef(false);
@@ -60,8 +60,10 @@ function RichDocumentEditor({ params }) {
           class: Alert,
           inlineToolbar: true,
         },
-        table: Table,
-        List: EditorjsList,
+        list: {
+          class: EditorjsList,
+          inlineToolbar: true,
+        },
         code: CodeTool,
         image: SimpleImage,
       },
@@ -72,7 +74,19 @@ function RichDocumentEditor({ params }) {
 
   return (
     <div className="lg:-ml-40">
-      <div id="editorjs"></div>
+      <div id="editorjs" className="w-70%"></div>
+      <div className="fixed bottom-10 md:ml-80 left-0 z-0">
+        <GenerateAITemplate
+          setGenerateAIOutput={async (output) => {
+            editorRef.current.render(output);
+            const docRef = doc(db, "documentOutput", documentId);
+            await updateDoc(docRef, {
+              output,
+              editedBy: user?.primaryEmailAddress?.emailAddress,
+            });
+          }}
+        />
+      </div>
     </div>
   );
 }

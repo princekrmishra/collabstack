@@ -7,9 +7,9 @@ import { Room } from '@/app/Room';
 
 function WorkspaceDocument({ params }) {
   // console.log(params);
-  
+ 
   return (
-    <Room>
+    <Room params={params}>
     <div>
       {/* Sidebar */}
       <div>
