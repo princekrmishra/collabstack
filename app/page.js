@@ -69,7 +69,7 @@ export default function Home() {
         {/* Right - Contact Details */}
         <div className="text-sm  text-black">
           Contact:{" "}
-          <a href="mailto:contact@mycompany.com" className="underline">
+          <a href="mailto:kmishraprince@gmail.com" className="underline">
             kmishraprince@gmail.com
           </a>{" "}
           | +91-76672-14106
