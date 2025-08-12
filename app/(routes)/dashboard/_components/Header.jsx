@@ -4,6 +4,8 @@ import { db } from '@/config/firebaseConfig'
 import { useAuth, useUser } from '@clerk/clerk-react'
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 import { doc, setDoc } from 'firebase/firestore'
+import Link from 'next/link'
+// import { Link } from 'lucide-react'
 import React, { useEffect } from 'react'
 
 function Header() {
@@ -29,7 +31,10 @@ function Header() {
     }
   return (
     <div className='flex justify-between items-center p-3 shadow-sm pr-9'>
-        <Logo/>
+
+        <Link href='/dashboard'>
+                <Logo />
+            </Link>
         <OrganizationSwitcher afterLeaveOrganizationUrl={'/dashboard'} afterCreateOrganizationUrl={'/dashboard'}/>
         <UserButton />
     </div>

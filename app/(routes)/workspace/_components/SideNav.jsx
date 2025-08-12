@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation'
 import { Progress } from "@/components/ui/progress"
 import { toast } from "sonner"
 import NotificationBox from './NotificationBox'
+import Link from 'next/link'
 
 function SideNav({ params }) {
   // unwrap params once
@@ -82,7 +83,10 @@ function SideNav({ params }) {
   return (
     <div className='h-screen md:w-72 md:block fixed bg-blue-50 p-5 shadow-md'>
       <div className='flex justify-between items-center'>
-        <Logo />
+
+        <Link href='/dashboard'>
+                <Logo />
+            </Link>
         
         <NotificationBox>
             <Bell className='h-5 w-5 text-gray-500' />

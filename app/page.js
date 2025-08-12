@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+// import Link from "next/navigation";
 import Image from "next/image";
 import Logo from "./_components/Logo";
 
@@ -9,7 +10,10 @@ export default function Home() {
       <header className="w-full border-b bg-white shadow-md "> 
         <div className="max-w-7xl mx-auto flex justify-between items-center py-1">
           <div className="flex items-start gap-2">
-            <Logo/> 
+            <Link href='/dashboard'>
+                <Logo />
+            </Link>
+            
           </div>
           <Link href="/dashboard">
             <Button className=" text-white">Get Started</Button>
