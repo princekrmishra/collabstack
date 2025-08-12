@@ -7,21 +7,10 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-r from-pink-100 via-purple-100 to-indigo-100">
       <header className="w-full border-b bg-white shadow-md "> 
-        <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
+        <div className="max-w-7xl mx-auto flex justify-between items-center py-1">
           <div className="flex items-start gap-2">
-            <Logo/>
-            
+            <Logo/> 
           </div>
-
-          {/* Navigation */}
-          <nav className="hidden md:flex gap-6 text-gray-700 font-medium">
-            <Link href="#features" className="hover:text-blue-600">Features</Link>
-            <Link href="#solutions" className="hover:text-blue-600">Solutions</Link>
-            <Link href="#testimonials" className="hover:text-blue-600">Testimonials</Link>
-            <Link href="#blog" className="hover:text-blue-600">Blog</Link>
-          </nav>
-
-          {/* Get Started Button */}
           <Link href="/dashboard">
             <Button className=" text-white">Get Started</Button>
           </Link>
@@ -45,16 +34,12 @@ export default function Home() {
               Get Started
             </Button>
           </Link>
-          <Link href="#learn-more">
-            <Button variant="outline" className="px-6 py-3 text-[oklch(66.683%_0.19516_43.138)]">
-              Learn More
-            </Button>
-          </Link>
+          
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-white shadow-md border-t  text-black py-6 px-6 flex flex-col md:flex-row items-center justify-between">
+      <footer className="bg-white shadow-md border-t  text-black py-2 px-3 flex flex-col md:flex-row items-center justify-between">
         {/* Left - Logo & Name */}
         <div className="flex items-center space-x-3">
           <Logo />
